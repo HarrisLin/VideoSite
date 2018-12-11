@@ -1,0 +1,15 @@
+{
+  "name": "VideoServer",
+  "version": "0.0.1",
+  "description": "Server that serves videos",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.0.0",
+    "path": "^0.12.7"
+  }
+}

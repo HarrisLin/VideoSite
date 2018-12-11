@@ -1,0 +1,49 @@
+body, html {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+.videoBox {
+	background-color: black;
+}
+
+.videoBox video {
+	height:250px;
+	width: 100%;
+}
+
+.main {
+	margin-top: 50px;
+	height: 100%;
+}
+
+#eventsList {
+	width: 200px;
+	height: 50%;
+	float:left;
+	margin-left: 25px;
+	text-align: center;
+}
+
+#container {
+	margin: 0 0 0 250px;
+	padding: 0;
+}
+
+.listHeader {
+	border-radius: 2px;
+	height: 50px;
+	padding-top: 10px;
+	line-height: 48px;
+	border: 1px solid rgba(0,0,0,.125);
+	border-bottom: 0;
+	background-color: #56706d;
+	color: white;
+}
+
+.nav-link:hover {
+	background-color: #000;
+	color: #fff;
+	cursor: pointer;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html>
+    <header>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/layout.css">
+
+        <title>Videos</title>
+    </header>
+    <body>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h5 class="text-white h4">About</h5>
+                <span class="text-muted">This site is for uploading videos for events so that everyone can view them afterwards.</span>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="">VideoZ</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link">Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" data-toggle="modal" data-target="#videoUpload">Upload</a></li>
+                    <li class="nav-item active"><a class="nav-link" data-toggle="modal" data-target="#addEvent">Add Event</a></li>
+                </ul>
+            </div>
+            <button class="navbar-toggle bg-dark navbar-right" type="button"
+                    data-toggle="collapse" data-target="#navbarToggleExternalContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+
+        <div class="main">
+            <div id="eventsList">
+                <div class="listHeader">
+                    <h5>Events</h5>
+                </div>
+                <ul class="list-group">
+                    
+                </ul>
+            </div>
+            <div id="container">
+                
+            </div>
+        </div>
+
+        <div class="modal fade" id="videoUpload" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                  <h5 class="modal-title">Upload Video</h5>
+                  <button type="button" class="close text-white" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form ref='uploadForm' id='uploadForm'
+                          method='post' encType="multipart/form-data">
+                        <div class="form-row">
+                            <div class="form-group col-md-6 offset-md-3">
+                                <input type="text" class="form-control" name="videoName" placeholder="Video Name" required/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 offset-md-3">
+                                <select class="form-control" name="event" id="uploadEvents" required>
+                                    
+                                </select>
+                            </div>
+                        </div> 
+                        <div class="form-row">
+                            <div class="form-group col-md-6 offset-md-3">
+                                <input type="file" class="custom-file-input" id="videoFile" name="uploadVid"
+                                        placeholder="Video File" accept="video/mp4">
+                                <label class="custom-file-label" for="videoFile">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+
+                        </div>                                 
+                    </form> 
+                </div>
+                <div id="videoProgress" style="display:none;" class="form-group col-md-10 offset-md-1">
+                    <div class="progress">
+                      <div class="progress-bar-striped bg-success" style="width: 0%" role="progressbar"></div>
+                    </div>
+                </div>
+                <div id="videoAlertSuccess" style="display:none;" class="form-group col-md-8 offset-md-2 alert alert-success" role="alert">
+                    Video Uploaded!
+                </div>
+                <div id="videoAlertFail" style="display:none;" class="form-group col-md-8 offset-md-2 alert alert-danger" role="alert">
+                    Failed
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary" form="uploadForm">Upload</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addEvent" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                  <h5 class="modal-title">Create New Event</h5>
+                  <button type="button" class="close text-white" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form ref='eventForm' id='eventForm'
+                          method='post' encType="multipart/form-data">
+                        <div class="form-row">
+                            <div class="form-group col-md-6 offset-md-3">
+                                <input type="text" class="form-control" name="name" placeholder="New Event Name" required/>
+                            </div>
+                        </div>                           
+                    </form> 
+                </div>
+                <div id="eventAlertSuccess" style="display:none;" class="form-group col-md-8 offset-md-2 alert alert-success" role="alert">
+                    Event Created!
+                </div>
+                <div id="eventAlertFail" style="display:none;" class="form-group col-md-8 offset-md-2 alert alert-danger" role="alert">
+                    Failed
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary" form="eventForm" id="createEventSubmit">Create</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <script src="libs/jquery/jquery.min.js"></script>
+        <script src="libs/popper/popper.min.js"></script>
+        <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/videopage.js"></script>
+        </body>
+</html>
